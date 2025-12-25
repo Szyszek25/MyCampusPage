@@ -27,7 +27,7 @@ const HeroSection = () => {
             </div>
             <div className="relative ml-8">
               <div className="absolute -bottom-4 left-4 bg-coral rounded-full px-4 py-2 text-sm font-medium text-primary-foreground shadow-lg z-10">
-                Zajęcia śpiewu 🎵
+                Komunikacja pod ręką 📱
               </div>
               <img
                 src={heroImage1}
@@ -72,7 +72,7 @@ const HeroSection = () => {
           <div className="hidden lg:flex flex-col gap-4 flex-1 items-end">
             <div className="relative">
               <div className="absolute -top-4 right-4 bg-coral rounded-full px-4 py-2 text-sm font-medium text-primary-foreground shadow-lg z-10">
-                Klub mówców 🎤
+                Plan zajęć 📅
               </div>
               <img
                 src={heroImage1}
