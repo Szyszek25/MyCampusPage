@@ -12,9 +12,11 @@ const Navbar = () => {
       <div className="container mx-auto px-4 py-3 flex items-center justify-between gap-4">
         {/* Logo */}
         <div className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
-            <span className="text-primary-foreground font-bold text-lg">M</span>
-          </div>
+          <img 
+            src="/logo-foreground.webp" 
+            alt="MyCampus" 
+            className="h-12 w-auto brightness-0"
+          />
           <span className="font-bold text-xl text-foreground">MyCampus</span>
         </div>
 
@@ -46,10 +48,27 @@ const Navbar = () => {
             <Globe className="w-4 h-4" />
             <span>Polski</span>
           </button>
-          <Button variant="ghost" className="text-sm font-medium">
+          <Button 
+            variant="ghost" 
+            className="text-sm font-medium text-black hover:bg-black/5"
+          >
             Zaloguj
           </Button>
-          <Button className="rounded-full">
+          <Button 
+            className="rounded-full bg-black text-white hover:bg-black/90 transition-all"
+            style={{
+              boxShadow: '0 3px 0 0 rgba(0, 0, 0, 0.2), 0 6px 12px rgba(0, 0, 0, 0.1)',
+              transform: 'translateY(0)',
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = 'translateY(1px)';
+              e.currentTarget.style.boxShadow = '0 2px 0 0 rgba(0, 0, 0, 0.2), 0 4px 8px rgba(0, 0, 0, 0.1)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = 'translateY(0)';
+              e.currentTarget.style.boxShadow = '0 3px 0 0 rgba(0, 0, 0, 0.2), 0 6px 12px rgba(0, 0, 0, 0.1)';
+            }}
+          >
             Zarejestruj się
           </Button>
         </div>

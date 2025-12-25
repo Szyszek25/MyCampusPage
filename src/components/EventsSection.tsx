@@ -1,5 +1,6 @@
 import { ArrowRight, Monitor } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import EventCard from "./EventCard";
 
 const eventMusic = "/placeholder.svg";
@@ -54,17 +55,30 @@ const EventsSection = () => {
   return (
     <section className="py-16 bg-transparent">
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between mb-8">
-          <div className="flex items-center gap-3">
+        <div className="mb-8">
+          <div className="flex items-center gap-3 mb-2">
             <h2 className="text-2xl md:text-3xl font-bold text-foreground">
-              Nadchodzące wydarzenia
+              Dzieje się dziś na kampusie
             </h2>
             <Monitor className="w-6 h-6 text-teal" />
           </div>
-          <Button variant="link" className="text-primary font-medium group">
-            Zobacz wszystkie wydarzenia
-            <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
-          </Button>
+          <p className="text-muted-foreground mb-4">
+            Rzeczy, na które <strong>realnie zdążysz</strong> między zajęciami.
+          </p>
+          <div className="flex items-center gap-2 flex-wrap">
+            <Badge variant="outline" className="bg-primary/10 text-primary border-primary/20">
+              Dziś
+            </Badge>
+            <Badge variant="outline" className="bg-muted">
+              Za 2h
+            </Badge>
+            <Badge variant="outline" className="bg-muted">
+              Po zajęciach
+            </Badge>
+            <Badge variant="outline" className="bg-muted">
+              ≤ 2 km
+            </Badge>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">

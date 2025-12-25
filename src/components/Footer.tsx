@@ -7,9 +7,11 @@ const Footer = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-lg">M</span>
-              </div>
+              <img 
+                src="/logo-foreground.webp" 
+                alt="MyCampus" 
+                className="h-12 w-auto brightness-0 invert"
+              />
               <span className="font-bold text-xl">MyCampus</span>
             </div>
             <p className="text-sm text-muted-foreground">
@@ -45,13 +47,18 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-muted pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-muted-foreground">
-            © 2024 MyCampus. Wszystkie prawa zastrzeżone.
+        <div className="border-t border-muted pt-8 space-y-4">
+          <p className="text-sm text-muted-foreground text-center">
+            <strong>Twoje dane są przetwarzane lokalnie i prywatnie.</strong>
           </p>
-          <p className="text-sm text-muted-foreground flex items-center gap-1">
-            Zrobione z <Heart className="w-4 h-4 text-coral" /> dla studentów
-          </p>
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+            <p className="text-sm text-muted-foreground">
+              © 2024 MyCampus. Wszystkie prawa zastrzeżone.
+            </p>
+            <p className="text-sm text-muted-foreground flex items-center gap-1">
+              Zrobione z <Heart className="w-4 h-4 text-coral" /> dla studentów
+            </p>
+          </div>
         </div>
       </div>
     </footer>
