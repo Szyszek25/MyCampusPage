@@ -32,24 +32,37 @@ bun dev
 npm run build
 ```
 
-## 🌐 Wdrożenie na Vercel
+## 🌐 Wdrożenie
 
-1. Zainstaluj Vercel CLI (jeśli jeszcze nie masz):
+### Vercel (Aktualne)
+
+Projekt jest już wdrożony na Vercel:
+- **Production URL**: https://mycampus-page.vercel.app
+- **Dashboard**: https://vercel.com/jakubs-projects-7bb06387/mycampus-page
+
+Aby zaktualizować wdrożenie:
 ```bash
-npm i -g vercel
+npx vercel --prod
 ```
 
-2. Zaloguj się do Vercel:
+### GitHub Repository
+
+Aby utworzyć repozytorium GitHub i połączyć je z Vercel:
+
+1. Utwórz nowe repozytorium na GitHub: https://github.com/new
+   - Nazwa: `MyCampusPage`
+   - Public lub Private
+
+2. Dodaj remote i wypchnij kod:
 ```bash
-vercel login
+git remote add origin https://github.com/TWOJA_NAZWA/MyCampusPage.git
+git branch -M main
+git push -u origin main
 ```
 
-3. Wdróż projekt:
-```bash
-vercel
-```
-
-Lub połącz repozytorium GitHub z Vercel przez dashboard: https://vercel.com
+3. Połącz repozytorium z Vercel:
+   - Przejdź do: https://vercel.com/jakubs-projects-7bb06387/mycampus-page/settings
+   - W sekcji "Git" połącz swoje repozytorium GitHub
 
 ## 📝 Struktura projektu
 
