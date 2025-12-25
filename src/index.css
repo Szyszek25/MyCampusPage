@@ -184,21 +184,18 @@
     0% {
       transform: translateY(0);
     }
-    25% {
+    33.33% {
       transform: translateY(-812px);
     }
-    50% {
+    66.66% {
       transform: translateY(-1624px);
     }
-    75% {
-      transform: translateY(-2436px);
-    }
     100% {
-      transform: translateY(-3248px);
+      transform: translateY(-2436px);
     }
   }
 
   .animate-scroll-feed {
-    animation: scrollFeedLoop 16s linear infinite;
+    animation: scrollFeedLoop 20s linear infinite;
   }
 }

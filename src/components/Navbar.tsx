@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input";
 
 const Navbar = () => {
   return (
-    <nav className="sticky top-0 z-50 bg-white border-b border-border/50 shadow-sm relative" style={{
+    <nav className="sticky top-0 z-50 bg-white border-b border-border/50 shadow-sm relative transition-all duration-300" style={{
       backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)), url('/light-plaster-wall-texture.jpg')`,
       backgroundRepeat: 'repeat',
       backgroundSize: '200px 200px',
