@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Users, Clock, ShoppingBag, Handshake, Bus, Calendar, MapPin, Film, Send, Plus, X, ArrowLeft, Settings, Home, School, Lock, Ban, Plus as AddIcon, ChevronLeft, ChevronRight } from "lucide-react";
+import { Users, Clock, ShoppingBag, Handshake, Bus, Calendar, MapPin, Film, Send, Plus, X, ArrowLeft, Settings, Home, School, Lock, Ban, Plus as AddIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 // Helper function to get OSM tile URL
@@ -25,7 +25,6 @@ const MapWithMarker = ({ lat, lon, zoom, width, height, markerColor }: { lat: nu
           e.currentTarget.src = '/placeholder.svg';
         }}
       />
-      {/* Marker in center */}
       <div 
         className="absolute"
         style={{ 
@@ -47,10 +46,29 @@ const MapWithMarker = ({ lat, lon, zoom, width, height, markerColor }: { lat: nu
   );
 };
 
-// Screen content components
+// Screen components with topbar (hour, battery, etc.)
 const Screen1_PlanDnia = () => (
   <div className="h-[812px] flex flex-col bg-background overflow-y-auto">
-    <div className="sticky top-0 z-50 bg-background/90 backdrop-blur-md p-4 pb-2 border-b border-border/50">
+    {/* Topbar with time and battery */}
+    <div className="sticky top-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border/50">
+      <div className="flex items-center justify-between px-6 py-2">
+        <span className="text-[13px] font-semibold text-foreground">9:41</span>
+        <div className="flex items-center gap-1">
+          <svg width="24" height="12" viewBox="0 0 24 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="1" y="2" width="20" height="8" rx="1" stroke="currentColor" strokeWidth="1.5" fill="none"/>
+            <rect x="21" y="4" width="2" height="4" rx="0.5" fill="currentColor"/>
+            <rect x="2.5" y="4" width="16" height="4" rx="0.5" fill="currentColor"/>
+          </svg>
+          <div className="flex items-center gap-0.5 ml-1">
+            <div className="w-[3px] h-[3px] rounded-full bg-foreground"></div>
+            <div className="w-[3px] h-[3px] rounded-full bg-foreground"></div>
+            <div className="w-[3px] h-[3px] rounded-full bg-foreground"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div className="sticky top-0 z-40 bg-background/90 backdrop-blur-md p-4 pb-2 border-b border-border/50">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-3">
           <div className="relative shrink-0">
@@ -108,7 +126,25 @@ const Screen1_PlanDnia = () => (
 
 const Screen2_OknoCzasu = () => (
   <div className="h-[812px] flex flex-col bg-background overflow-y-auto">
-    <div className="sticky top-0 z-50 flex items-center bg-background/95 backdrop-blur-sm p-4 pb-2 justify-between border-b border-border/50">
+    <div className="sticky top-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border/50">
+      <div className="flex items-center justify-between px-6 py-2">
+        <span className="text-[13px] font-semibold text-foreground">9:41</span>
+        <div className="flex items-center gap-1">
+          <svg width="24" height="12" viewBox="0 0 24 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="1" y="2" width="20" height="8" rx="1" stroke="currentColor" strokeWidth="1.5" fill="none"/>
+            <rect x="21" y="4" width="2" height="4" rx="0.5" fill="currentColor"/>
+            <rect x="2.5" y="4" width="16" height="4" rx="0.5" fill="currentColor"/>
+          </svg>
+          <div className="flex items-center gap-0.5 ml-1">
+            <div className="w-[3px] h-[3px] rounded-full bg-foreground"></div>
+            <div className="w-[3px] h-[3px] rounded-full bg-foreground"></div>
+            <div className="w-[3px] h-[3px] rounded-full bg-foreground"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div className="sticky top-0 z-40 flex items-center bg-background/95 backdrop-blur-sm p-4 pb-2 justify-between border-b border-border/50">
       <button className="size-12 shrink-0 flex items-center justify-center rounded-full active:bg-black/5 dark:active:bg-white/10">
         <ArrowLeft className="w-5 h-5 text-foreground" />
       </button>
@@ -161,7 +197,25 @@ const Screen2_OknoCzasu = () => (
 
 const Screen3_Mapa = () => (
   <div className="h-[812px] flex flex-col bg-background overflow-y-auto">
-    <div className="sticky top-0 z-50 bg-background/90 backdrop-blur-md p-4 pb-2 border-b border-border/50">
+    <div className="sticky top-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border/50">
+      <div className="flex items-center justify-between px-6 py-2">
+        <span className="text-[13px] font-semibold text-foreground">9:41</span>
+        <div className="flex items-center gap-1">
+          <svg width="24" height="12" viewBox="0 0 24 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="1" y="2" width="20" height="8" rx="1" stroke="currentColor" strokeWidth="1.5" fill="none"/>
+            <rect x="21" y="4" width="2" height="4" rx="0.5" fill="currentColor"/>
+            <rect x="2.5" y="4" width="16" height="4" rx="0.5" fill="currentColor"/>
+          </svg>
+          <div className="flex items-center gap-0.5 ml-1">
+            <div className="w-[3px] h-[3px] rounded-full bg-foreground"></div>
+            <div className="w-[3px] h-[3px] rounded-full bg-foreground"></div>
+            <div className="w-[3px] h-[3px] rounded-full bg-foreground"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div className="sticky top-0 z-40 bg-background/90 backdrop-blur-md p-4 pb-2 border-b border-border/50">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-3">
           <div className="relative shrink-0">
@@ -202,27 +256,36 @@ const Screen3_Mapa = () => (
   </div>
 );
 
-// Feature text content for each step
-const featureTexts = [
+// Feature texts for side narration
+const sideTexts = [
   {
-    title: "Twój dzień w jednym miejscu",
-    description: "Plan zajęć, dojazdy i dostępność znajomych w jednym widoku. Bez przełączania między aplikacjami."
+    left: "Twój dzień w jednym miejscu",
+    right: "Plan zajęć, dojazdy i dostępność znajomych w jednym widoku. Bez przełączania między aplikacjami."
   },
   {
-    title: "MyCampus wykrywa okna czasu",
-    description: "Gdy masz 2h wolne i 3 znajomych dostępnych — aplikacja automatycznie sugeruje spotkanie."
+    left: "MyCampus wykrywa okna czasu",
+    right: "Gdy masz 2h wolne i 3 znajomych dostępnych — aplikacja automatycznie sugeruje spotkanie."
   },
   {
-    title: "Decyzje bez planowania",
-    description: "Biedronka 7 min pieszo. Autobus za 5 min. MyCampus podpowiada, co zrobić i kiedy — w odpowiednim momencie."
+    left: "Decyzje bez planowania",
+    right: "Biedronka 7 min pieszo. Autobus za 5 min. MyCampus podpowiada, co zrobić i kiedy — w odpowiednim momencie."
   }
 ];
 
+// Hero text (main center text)
+const heroText = {
+  title: "Platforma od studenta dla studentów",
+  subtitle: "Gdzie czas i ludzie spotykają się naturalnie."
+};
+
+// Lerp helper
+const lerp = (start: number, end: number, t: number) => start + (end - start) * t;
+const clamp = (value: number, min: number = 0, max: number = 1) => Math.min(Math.max(value, min), max);
+
 const ScrollStorytelling = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
-  const stickyWrapperRef = useRef<HTMLDivElement>(null);
-  const [activeStep, setActiveStep] = useState(0);
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [activeStep, setActiveStep] = useState(0);
   const [isInSection, setIsInSection] = useState(false);
 
   useEffect(() => {
@@ -238,49 +301,35 @@ const ScrollStorytelling = () => {
       const isVisible = rect.top < windowHeight && rect.bottom > 0;
       setIsInSection(isVisible);
       
-      // Hide/show navbar based on section visibility
+      // Hide/show navbar
       const navbar = document.querySelector('nav');
-      if (navbar) {
-        if (isVisible && rect.top < 100) {
-          navbar.style.transform = 'translateY(-100%)';
-          navbar.style.opacity = '0';
-        } else {
-          navbar.style.transform = 'translateY(0)';
-          navbar.style.opacity = '1';
-        }
+      if (navbar && isVisible && rect.top < 100) {
+        navbar.style.transform = 'translateY(-100%)';
+        navbar.style.opacity = '0';
+      } else if (navbar) {
+        navbar.style.transform = 'translateY(0)';
+        navbar.style.opacity = '1';
       }
       
-      // Calculate how much of the section is scrolled through
-      // When section top is at window top, progress = 0
-      // When section bottom is at window top, progress = 1
+      // Calculate scroll progress (0 to 1)
       const scrolled = -rect.top;
       const maxScroll = sectionHeight - windowHeight;
       const progress = Math.max(0, Math.min(1, scrolled / maxScroll));
       
       setScrollProgress(progress);
       
-      // Determine active step based on scroll progress
-      // 3 steps: 0-0.33, 0.33-0.66, 0.66-1
-      let newStep = 0;
-      if (progress < 0.33) {
-        newStep = 0;
-      } else if (progress < 0.66) {
-        newStep = 1;
-      } else {
-        newStep = 2;
-      }
-      
-      if (newStep !== activeStep) {
+      // Determine active step (0, 1, 2)
+      const newStep = Math.floor(clamp(progress, 0, 0.99) * 3);
+      if (newStep !== activeStep && newStep < 3) {
         setActiveStep(newStep);
       }
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll(); // Initial call
+    handleScroll();
     
     return () => {
       window.removeEventListener('scroll', handleScroll);
-      // Reset navbar on unmount
       const navbar = document.querySelector('nav');
       if (navbar) {
         navbar.style.transform = '';
@@ -289,268 +338,137 @@ const ScrollStorytelling = () => {
     };
   }, [activeStep]);
 
-  // Calculate phone position based on scroll
-  const getPhoneTransform = () => {
-    // Phone enters from bottom (0-0.1), stays sticky and visible (0.1-1)
-    if (scrollProgress < 0.1) {
-      const progress = scrollProgress / 0.1;
-      return {
-        transform: `translateY(${100 * (1 - progress)}px) scale(${0.8 + 0.2 * progress})`,
-        opacity: 1 // Always visible, no fade out
-      };
-    } else {
-      return {
-        transform: 'translateY(0) scale(1)',
-        opacity: 1 // Always visible
-      };
-    }
-  };
-
-  const phoneStyle = getPhoneTransform();
-
-  // Navigation handlers
-  const handlePrev = () => {
-    if (activeStep > 0) {
-      setActiveStep(activeStep - 1);
-      // Scroll to appropriate position
-      const section = sectionRef.current;
-      if (section) {
-        const windowHeight = window.innerHeight;
-        const sectionHeight = section.offsetHeight;
-        const targetProgress = (activeStep - 1) * 0.33;
-        const targetScroll = targetProgress * (sectionHeight - windowHeight);
-        window.scrollTo({
-          top: section.offsetTop + targetScroll,
-          behavior: 'smooth'
-        });
-      }
-    }
-  };
-
-  const handleNext = () => {
-    if (activeStep < 2) {
-      setActiveStep(activeStep + 1);
-      // Scroll to appropriate position
-      const section = sectionRef.current;
-      if (section) {
-        const windowHeight = window.innerHeight;
-        const sectionHeight = section.offsetHeight;
-        const targetProgress = (activeStep + 1) * 0.33;
-        const targetScroll = targetProgress * (sectionHeight - windowHeight);
-        window.scrollTo({
-          top: section.offsetTop + targetScroll,
-          behavior: 'smooth'
-        });
-      }
-    }
-  };
+  // Apple-style animations based on scroll progress
+  
+  // Phone: enters from bottom (0-20%), scales (20-40%), stays (40-100%)
+  const phoneY = lerp(120, 0, clamp(scrollProgress / 0.25));
+  const phoneScale = scrollProgress < 0.2 
+    ? lerp(0.9, 0.9, clamp(scrollProgress / 0.2))
+    : lerp(0.9, 1.05, clamp((scrollProgress - 0.2) / 0.2));
+  
+  // Hero text: starts fading/moving at 30%
+  const heroOpacity = scrollProgress < 0.3 
+    ? 1 
+    : lerp(1, 0.85, clamp((scrollProgress - 0.3) / 0.3));
+  const heroY = scrollProgress < 0.3 
+    ? 0 
+    : lerp(0, -40, clamp((scrollProgress - 0.3) / 0.3));
+  
+  // Side texts: appear at 50%
+  const sideOpacity = clamp((scrollProgress - 0.5) / 0.2);
+  const leftX = lerp(-40, 0, sideOpacity);
+  const rightX = lerp(40, 0, sideOpacity);
 
   return (
     <section 
       ref={sectionRef}
-      className="relative min-h-[300vh] bg-background"
+      className="relative min-h-[350vh] bg-background"
     >
-      {/* Sticky wrapper */}
-      <div 
-        ref={stickyWrapperRef}
-        className="sticky top-0 h-screen flex items-center justify-center px-4 py-20"
-      >
-        <div className="container mx-auto flex items-center justify-center gap-8 lg:gap-16 max-w-7xl relative">
-          {/* Feature text - left side */}
-          <div className="hidden lg:flex flex-col items-end flex-1 max-w-md">
-            <div 
-              className="transition-all duration-500 text-right"
-              style={{
-                opacity: phoneStyle.opacity > 0.5 ? 1 : 0,
-                transform: `translateX(${phoneStyle.opacity > 0.5 ? 0 : -20}px)`
-              }}
-            >
-              <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6 leading-tight">
-                {featureTexts[activeStep].title}
-              </h2>
-              <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-                {featureTexts[activeStep].description}
-              </p>
+      {/* Story spacer - creates scroll height */}
+      <div className="h-[250vh]"></div>
+      
+      {/* Sticky container */}
+      <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden">
+        <div className="container mx-auto px-4 relative w-full max-w-7xl">
+          {/* Hero text - center, moves up and fades */}
+          <div 
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 text-center transition-all duration-300"
+            style={{
+              opacity: heroOpacity,
+              transform: `translate(-50%, calc(-50% + ${heroY}px))`,
+            }}
+          >
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-foreground mb-4 leading-tight">
+              {heroText.title}
+            </h1>
+            <p className="text-xl md:text-2xl text-muted-foreground">
+              {heroText.subtitle}
+            </p>
+          </div>
+          
+          {/* Phone mockup - enters from bottom, scales, overlaps text */}
+          <div 
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 transition-all duration-300"
+            style={{
+              transform: `translate(-50%, calc(-50% + ${phoneY}%)) scale(${phoneScale})`,
+              transition: 'transform 0.1s cubic-bezier(0.22, 1, 0.36, 1)',
+            }}
+          >
+            <div className="relative w-[375px] h-[812px] rounded-[3.5rem] bg-gradient-to-b from-gray-900 to-gray-800 p-[6px] shadow-2xl">
+              <div className="absolute inset-[6px] rounded-[3rem] bg-background overflow-hidden">
+                {/* Dynamic Island */}
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[126px] h-[37px] bg-foreground rounded-b-[20px] z-30 flex items-center justify-center">
+                  <div className="w-[100px] h-[6px] bg-gray-800 rounded-full"></div>
+                </div>
+                
+                {/* Screen content container */}
+                <div className="w-full h-full overflow-hidden relative bg-background">
+                  {/* Screen 1: Plan Dnia */}
+                  <div 
+                    className="absolute inset-0 transition-opacity duration-500"
+                    style={{
+                      opacity: activeStep === 0 ? 1 : 0,
+                      pointerEvents: activeStep === 0 ? 'auto' : 'none'
+                    }}
+                  >
+                    <Screen1_PlanDnia />
+                  </div>
+                  
+                  {/* Screen 2: Okno Czasu */}
+                  <div 
+                    className="absolute inset-0 transition-opacity duration-500"
+                    style={{
+                      opacity: activeStep === 1 ? 1 : 0,
+                      pointerEvents: activeStep === 1 ? 'auto' : 'none'
+                    }}
+                  >
+                    <Screen2_OknoCzasu />
+                  </div>
+                  
+                  {/* Screen 3: Mapa */}
+                  <div 
+                    className="absolute inset-0 transition-opacity duration-500"
+                    style={{
+                      opacity: activeStep === 2 ? 1 : 0,
+                      pointerEvents: activeStep === 2 ? 'auto' : 'none'
+                    }}
+                  >
+                    <Screen3_Mapa />
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
           
-          {/* Phone mockup - center */}
+          {/* Left side text */}
           <div 
-            className="relative w-[375px] h-[812px] flex-shrink-0"
+            className="absolute top-1/2 left-8 -translate-y-1/2 z-10 max-w-sm transition-all duration-500"
             style={{
-              transform: phoneStyle.transform,
-              opacity: phoneStyle.opacity,
-              transition: 'transform 0.1s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.1s cubic-bezier(0.22, 1, 0.36, 1)'
+              opacity: sideOpacity,
+              transform: `translateY(-50%) translateX(${leftX}px)`,
             }}
           >
-              <div className="relative w-full h-full rounded-[3.5rem] bg-gradient-to-b from-gray-900 to-gray-800 p-[6px] shadow-2xl">
-                {/* Phone frame */}
-                <div className="absolute inset-[6px] rounded-[3rem] bg-background overflow-hidden">
-                  {/* Dynamic Island */}
-                  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[126px] h-[37px] bg-foreground rounded-b-[20px] z-30 flex items-center justify-center">
-                    <div className="w-[100px] h-[6px] bg-gray-800 rounded-full"></div>
-                  </div>
-                  
-                  {/* Status bar */}
-                  <div className="absolute top-2 left-0 right-0 flex justify-between items-center px-6 z-20">
-                    <span className="text-[11px] font-semibold text-foreground">9:41</span>
-                    <div className="flex items-center gap-1">
-                      <div className="w-[17px] h-[10px] border border-foreground rounded-sm">
-                        <div className="w-[13px] h-[6px] bg-foreground rounded-sm m-[1px]"></div>
-                      </div>
-                      <div className="w-[1px] h-[4px] bg-foreground"></div>
-                      <div className="w-[1px] h-[4px] bg-foreground"></div>
-                      <div className="w-[1px] h-[4px] bg-foreground"></div>
-                    </div>
-                  </div>
-                  
-                  {/* Screen content container */}
-                  <div className="w-full h-full pt-12 overflow-hidden relative bg-background">
-                    {/* Navigation arrows on screen - SVG */}
-                    {/* Left arrow */}
-                    <button
-                      onClick={handlePrev}
-                      disabled={activeStep === 0}
-                      className={`absolute left-4 top-1/2 -translate-y-1/2 z-50 transition-all ${
-                        activeStep === 0
-                          ? 'opacity-30 cursor-not-allowed'
-                          : 'opacity-100 hover:opacity-80 cursor-pointer'
-                      }`}
-                      style={{ pointerEvents: activeStep === 0 ? 'none' : 'auto' }}
-                    >
-                      <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="20" cy="20" r="18" fill="rgba(0,0,0,0.6)" stroke="rgba(255,255,255,0.3)" strokeWidth="2"/>
-                        <path d="M22 14L16 20L22 26" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
-                      </svg>
-                    </button>
-                    
-                    {/* Right arrow */}
-                    <button
-                      onClick={handleNext}
-                      disabled={activeStep === 2}
-                      className={`absolute right-4 top-1/2 -translate-y-1/2 z-50 transition-all ${
-                        activeStep === 2
-                          ? 'opacity-30 cursor-not-allowed'
-                          : 'opacity-100 hover:opacity-80 cursor-pointer'
-                      }`}
-                      style={{ pointerEvents: activeStep === 2 ? 'none' : 'auto' }}
-                    >
-                      <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="20" cy="20" r="18" fill="rgba(0,0,0,0.6)" stroke="rgba(255,255,255,0.3)" strokeWidth="2"/>
-                        <path d="M18 14L24 20L18 26" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
-                      </svg>
-                    </button>
-                    
-                    {/* Screen 1: Plan Dnia */}
-                    <div 
-                      className="absolute inset-0 transition-opacity duration-500"
-                      style={{
-                        opacity: activeStep === 0 ? 1 : 0,
-                        pointerEvents: activeStep === 0 ? 'auto' : 'none'
-                      }}
-                    >
-                      <Screen1_PlanDnia />
-                    </div>
-                    
-                    {/* Screen 2: Okno Czasu */}
-                    <div 
-                      className="absolute inset-0 transition-opacity duration-500"
-                      style={{
-                        opacity: activeStep === 1 ? 1 : 0,
-                        pointerEvents: activeStep === 1 ? 'auto' : 'none'
-                      }}
-                    >
-                      <Screen2_OknoCzasu />
-                    </div>
-                    
-                    {/* Screen 3: Mapa */}
-                    <div 
-                      className="absolute inset-0 transition-opacity duration-500"
-                      style={{
-                        opacity: activeStep === 2 ? 1 : 0,
-                        pointerEvents: activeStep === 2 ? 'auto' : 'none'
-                      }}
-                    >
-                      <Screen3_Mapa />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            {/* Feature text - right side */}
-            <div className="hidden lg:flex flex-col items-start flex-1 max-w-md">
-              <div 
-                className="transition-all duration-500 text-left"
-                style={{
-                  opacity: phoneStyle.opacity > 0.5 ? 1 : 0,
-                  transform: `translateX(${phoneStyle.opacity > 0.5 ? 0 : 20}px)`
-                }}
-              >
-                <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6 leading-tight">
-                  {featureTexts[activeStep].title}
-                </h2>
-                <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-                  {featureTexts[activeStep].description}
-                </p>
-              </div>
-            </div>
-            
-            {/* Mobile text below phone */}
-            <div className="lg:hidden mt-8 text-center px-4">
-              <div 
-                className="transition-all duration-500"
-                style={{
-                  opacity: phoneStyle.opacity > 0.5 ? 1 : 0,
-                }}
-              >
-                <h2 className="text-3xl font-bold text-foreground mb-4 leading-tight">
-                  {featureTexts[activeStep].title}
-                </h2>
-                <p className="text-base text-muted-foreground leading-relaxed">
-                  {featureTexts[activeStep].description}
-                </p>
-                <div className="flex items-center justify-center gap-4 mt-6">
-                  <button
-                    onClick={handlePrev}
-                    disabled={activeStep === 0}
-                    className={`p-2 rounded-full border-2 transition-all ${
-                      activeStep === 0
-                        ? 'border-muted text-muted-foreground cursor-not-allowed opacity-50'
-                        : 'border-foreground text-foreground hover:bg-muted cursor-pointer'
-                    }`}
-                  >
-                    <ChevronLeft className="w-5 h-5" />
-                  </button>
-                  <div className="flex gap-2">
-                    {[0, 1, 2].map((step) => (
-                      <div
-                        key={step}
-                        className={`w-2 h-2 rounded-full transition-all ${
-                          step === activeStep ? 'bg-foreground w-8' : 'bg-muted-foreground'
-                        }`}
-                      />
-                    ))}
-                  </div>
-                  <button
-                    onClick={handleNext}
-                    disabled={activeStep === 2}
-                    className={`p-2 rounded-full border-2 transition-all ${
-                      activeStep === 2
-                        ? 'border-muted text-muted-foreground cursor-not-allowed opacity-50'
-                        : 'border-foreground text-foreground hover:bg-muted cursor-pointer'
-                    }`}
-                  >
-                    <ChevronRight className="w-5 h-5" />
-                  </button>
-                </div>
-              </div>
-            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 leading-tight">
+              {sideTexts[activeStep]?.left}
+            </h2>
+          </div>
+          
+          {/* Right side text */}
+          <div 
+            className="absolute top-1/2 right-8 -translate-y-1/2 z-10 max-w-sm text-right transition-all duration-500"
+            style={{
+              opacity: sideOpacity,
+              transform: `translateY(-50%) translateX(${rightX}px)`,
+            }}
+          >
+            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
+              {sideTexts[activeStep]?.right}
+            </p>
           </div>
         </div>
+      </div>
     </section>
   );
 };
 
 export default ScrollStorytelling;
-
