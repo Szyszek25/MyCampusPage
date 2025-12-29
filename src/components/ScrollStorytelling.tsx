@@ -340,22 +340,36 @@ const ScrollStorytelling = () => {
 
   // Apple-style animations based on scroll progress
   
-  // Phone: enters from bottom (0-20%), scales (20-40%), stays (40-100%)
-  const phoneY = lerp(120, 0, clamp(scrollProgress / 0.25));
-  const phoneScale = scrollProgress < 0.2 
-    ? lerp(0.9, 0.9, clamp(scrollProgress / 0.2))
-    : lerp(0.9, 1.05, clamp((scrollProgress - 0.2) / 0.2));
+  // Phase 1 (0-25%): Phone enters from bottom, goes up
+  // Phase 2 (25-100%): Apple premium style - phone scales, hero text moves, side texts appear
   
-  // Hero text: starts fading/moving at 30%
-  const heroOpacity = scrollProgress < 0.3 
-    ? 1 
-    : lerp(1, 0.85, clamp((scrollProgress - 0.3) / 0.3));
-  const heroY = scrollProgress < 0.3 
-    ? 0 
-    : lerp(0, -40, clamp((scrollProgress - 0.3) / 0.3));
+  const phase1End = 0.25;
+  const phase2Start = 0.25;
   
-  // Side texts: appear at 50%
-  const sideOpacity = clamp((scrollProgress - 0.5) / 0.2);
+  // Phone Y position: starts below viewport, enters during phase 1, stays in phase 2
+  const phoneY = scrollProgress < phase1End
+    ? lerp(100, 0, clamp(scrollProgress / phase1End)) // 100vh → 0 (enters from bottom)
+    : 0; // Stays in place during phase 2
+  
+  // Phone scale: starts at 0.9, scales to 1.05 during phase 2
+  const phoneScale = scrollProgress < phase1End
+    ? 0.9 // Small scale during entry
+    : lerp(0.9, 1.05, clamp((scrollProgress - phase2Start) / 0.2)); // Scales 25-45%
+  
+  // Hero text: starts visible, moves up and fades during phase 2
+  const heroOpacity = scrollProgress < phase2Start
+    ? 1 // Fully visible during phase 1
+    : lerp(1, 0.85, clamp((scrollProgress - phase2Start) / 0.3)); // Fades 25-55%
+  
+  const heroY = scrollProgress < phase2Start
+    ? 0 // No movement during phase 1
+    : lerp(0, -40, clamp((scrollProgress - phase2Start) / 0.3)); // Moves up 25-55%
+  
+  // Side texts: appear during phase 2 (after 50% of total scroll)
+  const sideOpacity = scrollProgress < 0.5
+    ? 0 // Hidden during phase 1 and early phase 2
+    : clamp((scrollProgress - 0.5) / 0.2); // Appears 50-70%
+  
   const leftX = lerp(-40, 0, sideOpacity);
   const rightX = lerp(40, 0, sideOpacity);
 
@@ -388,9 +402,9 @@ const ScrollStorytelling = () => {
           
           {/* Phone mockup - enters from bottom, scales, overlaps text */}
           <div 
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 transition-all duration-300"
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20"
             style={{
-              transform: `translate(-50%, calc(-50% + ${phoneY}%)) scale(${phoneScale})`,
+              transform: `translate(-50%, calc(-50% + ${phoneY}vh)) scale(${phoneScale})`,
               transition: 'transform 0.1s cubic-bezier(0.22, 1, 0.36, 1)',
             }}
           >

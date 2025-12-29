@@ -1,8 +1,9 @@
+"use client";
+
+import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
-import ScrollStorytelling from "@/components/ScrollStorytelling";
-import ScrollStorytellingDraft from "@/components/ScrollStorytellingDraft";
 import HowItHelpsSection from "@/components/HowItHelpsSection";
 import WhyMyCampusSection from "@/components/WhyMyCampusSection";
 import EventsSection from "@/components/EventsSection";
@@ -11,6 +12,8 @@ import MeetingProposalCard from "@/components/MeetingProposalCard";
 import Footer from "@/components/Footer";
 
 const Index = () => {
+  const [scrollProgress, setScrollProgress] = useState(0);
+
   return (
     <>
       <Helmet>
@@ -19,10 +22,9 @@ const Index = () => {
       </Helmet>
       
       <div className="min-h-screen flex flex-col relative">
-        <Navbar />
+        <Navbar scrollProgress={scrollProgress} />
         <main className="flex-1 relative z-10">
-          <HeroSection />
-          <ScrollStorytelling />
+          <HeroSection onScrollProgress={setScrollProgress} />
           <section className="py-16 bg-muted/30">
             <div className="container mx-auto px-4">
               <MeetingProposalCard />
@@ -32,7 +34,6 @@ const Index = () => {
           <WhyMyCampusSection />
           <EventsSection />
           <CategoriesSection />
-          <ScrollStorytellingDraft />
         </main>
         <Footer />
       </div>

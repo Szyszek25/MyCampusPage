@@ -199,3 +199,9 @@ const MeetingProposalCard = () => {
 
 export default MeetingProposalCard;
 
+
+
+
+
+
+

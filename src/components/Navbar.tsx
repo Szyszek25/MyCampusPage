@@ -1,14 +1,55 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import { Search, MapPin, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
-const Navbar = () => {
+interface NavbarProps {
+  scrollProgress?: number;
+}
+
+const Navbar = ({ scrollProgress = 0 }: NavbarProps) => {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      
+      // Hide navbar when scrolling down, show when scrolling up or at top
+      if (currentScrollY > 10 && currentScrollY > lastScrollY) {
+        // Scrolling down - hide
+        setIsScrolled(true);
+      } else if (currentScrollY < lastScrollY || currentScrollY <= 10) {
+        // Scrolling up or at top - show
+        setIsScrolled(false);
+      }
+      
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll(); // Initial check
+    
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
+
+  const opacity = isScrolled ? 0 : 1;
+  const translateY = isScrolled ? -100 : 0;
+
   return (
-    <nav className="sticky top-0 z-50 bg-white border-b border-border/50 shadow-sm relative transition-all duration-300" style={{
-      backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)), url('/light-plaster-wall-texture.jpg')`,
-      backgroundRepeat: 'repeat',
-      backgroundSize: '200px 200px',
-    }}>
+    <nav 
+      className="sticky top-0 z-50 bg-white border-b border-border/50 shadow-sm relative transition-all duration-300" 
+      style={{
+        opacity,
+        transform: `translateY(${translateY}%)`,
+        pointerEvents: opacity < 0.1 ? 'none' : 'auto',
+        backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)), url('/light-plaster-wall-texture.jpg')`,
+        backgroundRepeat: 'repeat',
+        backgroundSize: '200px 200px',
+      }}
+    >
       <div className="container mx-auto px-4 py-3 flex items-center justify-between gap-4">
         {/* Logo */}
         <div className="flex items-center gap-2">
