@@ -1,8 +1,12 @@
 User-agent: Googlebot
 Allow: /
+Disallow: /privacy-policy.html
+Disallow: /privacy-policy
 
 User-agent: Bingbot
 Allow: /
+Disallow: /privacy-policy.html
+Disallow: /privacy-policy
 
 User-agent: Twitterbot
 Allow: /
@@ -12,3 +16,5 @@ Allow: /
 
 User-agent: *
 Allow: /
+Disallow: /privacy-policy.html
+Disallow: /privacy-policy

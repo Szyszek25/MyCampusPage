@@ -1,0 +1,29 @@
+{
+  "rewrites": [
+    {
+      "source": "/privacy-policy",
+      "destination": "/privacy-policy.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/privacy-policy.html",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    },
+    {
+      "source": "/privacy-policy",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    }
+  ]
+}
+
