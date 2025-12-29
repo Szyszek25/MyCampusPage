@@ -3,6 +3,10 @@
     {
       "source": "/privacy-policy",
       "destination": "/privacy-policy.html"
+    },
+    {
+      "source": "/delete-account",
+      "destination": "/delete-account.html"
     }
   ],
   "headers": [
@@ -17,6 +21,24 @@
     },
     {
       "source": "/privacy-policy",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    },
+    {
+      "source": "/delete-account.html",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    },
+    {
+      "source": "/delete-account",
       "headers": [
         {
           "key": "X-Robots-Tag",
